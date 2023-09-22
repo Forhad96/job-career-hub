@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const FeaturedJobsCard = ({ job }) => {
   const {
     id,
@@ -8,19 +9,17 @@ const FeaturedJobsCard = ({ job }) => {
     job_type,
     location,
     salary,
-    address,
-    contact_information
   } = job;
 
 //   const {address} = contact_information
   return (
     <div>
       <div className="card bg-base-100 shadow-xl">
-        <div className="card-body">
+        <div className="card-body flex-1">
          <img src={logo} className="w-28" />
           <h2 className="card-title">
             {job_title}
-            <div className="badge badge-secondary">NEW</div>
+            <div className="badge badge-primary">NEW</div>
           </h2>
           <p>{company_name}</p>
           <div className="card-actions ">
@@ -31,11 +30,13 @@ const FeaturedJobsCard = ({ job }) => {
             <p>{salary}</p>
             <p>{location}</p>
           </div>
-          <button className="btn btn-secondary self-start">View details</button>
+          <button className="btn btn-primary self-start">View details</button>
         </div>
       </div>
     </div>
   );
 };
-
+FeaturedJobsCard.propTypes={
+    job:PropTypes.object.isRequired,
+}
 export default FeaturedJobsCard;
