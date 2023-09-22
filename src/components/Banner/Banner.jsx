@@ -6,7 +6,7 @@ const Banner = () => {
         <div className="flex justify-between items-center flex-col lg:flex-row-reverse">
           <img
             src={BannerImg}
-            className="max-w-lg"
+            className="max-w-3xl"
           />
           <div>
             <h1 className="text-7xl font-bold">One Step  <br /> Closer To Your <br /> Dream Job</h1>
