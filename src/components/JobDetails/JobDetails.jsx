@@ -1,5 +1,11 @@
 import { AiOutlineDollar } from "react-icons/ai";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
+// react tostify
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { saveJobApplication } from "../utility/localStorage";
+
+
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
@@ -17,7 +23,17 @@ const JobDetails = () => {
 
 
   const handleApplyNow =()=>{
-    
+    saveJobApplication(idInt)
+    toast.success('🦄 Applied successful!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+        });
   }
   return (
     <div className="max-w-6xl mx-auto py-10">
@@ -86,9 +102,12 @@ const JobDetails = () => {
               </div>
             </div>
             <button onClick={handleApplyNow} className="btn btn-primary">Apply Now</button>
+            {/* <Link to={`/appliedJobs/${idInt}`}>
+            </Link> */}
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
